@@ -11,6 +11,8 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .vue()
-    .sass('resources/sass/app.scss', 'public/css');
+mix.css('resources/css/reset.css', 'public/css');
+mix.css('resources/css/responsive.css', 'public/css');
+mix.css('resources/css/style.css', 'public/css');
+mix.js('resources/js/validation.js', 'public/js');
+mix.js('resources/js/animation.js', 'public/js');
