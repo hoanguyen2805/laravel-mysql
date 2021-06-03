@@ -73,11 +73,6 @@
                 </div>
             </div>
         </div>
-        <div id="myModalImg" class="modal-img">
-            <span class="close-img">&times;</span>
-            <img class="modal-content__img" id="img_modal">
-            <div id="caption"></div>
-        </div>
     </section>
 
 @endsection

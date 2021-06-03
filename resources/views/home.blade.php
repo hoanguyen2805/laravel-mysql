@@ -21,10 +21,24 @@
                             <img src="{{ url(Auth::user()->avatar) }}" alt="">
                         </div>
                         <div class="user-info__content--txt">
-                            <p><span>Name:</span> {{ Auth::user()->name }}</p>
-                            <p><span>Email:</span>  {{ Auth::user()->email }}</p>
-                            <p><span>Username:</span>  {{ Auth::user()->username }}</p>
-                            <p><span>Birthday:</span> {{ \Carbon\Carbon::parse(Auth::user()->birth_day)->format('d/m/Y') }}</p>
+                            <table class="table">
+                                <tr>
+                                    <td>Name</td>
+                                    <td>{{ Auth::user()->name }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td>{{ Auth::user()->email }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Username</td>
+                                    <td>{{ Auth::user()->username }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Birthday</td>
+                                    <td>{{ \Carbon\Carbon::parse(Auth::user()->birth_day)->format('d/m/Y') }}</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>

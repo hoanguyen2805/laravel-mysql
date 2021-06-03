@@ -15,4 +15,4 @@ mix.css('resources/css/reset.css', 'public/css');
 mix.css('resources/css/responsive.css', 'public/css');
 mix.css('resources/css/style.css', 'public/css');
 mix.js('resources/js/validation.js', 'public/js');
-mix.js('resources/js/animation.js', 'public/js').version();
+mix.js('resources/js/animation.js', 'public/js')

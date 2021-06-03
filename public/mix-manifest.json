@@ -1,7 +1,7 @@
 {
-    "/js/validation.js": "/js/validation.js?id=92da9ae774e2beb1d805",
-    "/js/animation.js": "/js/animation.js?id=aeeb004f66d27cb4c7d6",
-    "/css/style.css": "/css/style.css?id=2668308fcc22bc21074f",
-    "/css/responsive.css": "/css/responsive.css?id=7d589cb87b4c65f48cb7",
-    "/css/reset.css": "/css/reset.css?id=92adc34b24f9185f7049"
+    "/js/validation.js": "/js/validation.js",
+    "/js/animation.js": "/js/animation.js",
+    "/css/style.css": "/css/style.css",
+    "/css/responsive.css": "/css/responsive.css",
+    "/css/reset.css": "/css/reset.css"
 }
