@@ -38,10 +38,14 @@ function PreviewImage(id) {
  *
  */
 var modal = document.getElementById("myModalImg");
-var modalImg = document.getElementById("img01");
-function showModalImg(e){
+var modalImg = document.getElementById("img_modal");
+modalImg.addEventListener('click', function () {
     modal.style.display = "block";
     modalImg.src = e.src;
+})
+function showModalImg(e){
+
+
 }
 
 // Get the <span> element that closes the modal

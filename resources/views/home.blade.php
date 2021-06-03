@@ -18,7 +18,7 @@
                 <div class="col">
                     <div class="user-info__content">
                         <div class="user-info__content--img">
-                            <img src="{{ Auth::user()->avatar }}" alt="">
+                            <img src="{{ url(Auth::user()->avatar) }}" alt="">
                         </div>
                         <div class="user-info__content--txt">
                             <p><span>Name:</span> {{ Auth::user()->name }}</p>

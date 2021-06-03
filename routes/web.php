@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +16,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/home');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::prefix('/admin')->as('admin.')->group(function (){
+    Route::prefix('/user')->as('user.')->group(function(){
+        Route::get('/list', [UserController::class, 'getUsers'])->name('list');
+        Route::get('/delete/{id}', [UserController::class, 'deleteUser'])
+            ->where('id', '[0-9]+')->name('delete');
+    });
+    Route::prefix('/product')->as('product.')->group(function (){
+        Route::get('/product', function () {
+        });
+    });
+});

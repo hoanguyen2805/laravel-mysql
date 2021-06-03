@@ -19,6 +19,9 @@
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('/css/responsive.css') }}" type="text/css">
 
+    <!-- js -->
+
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -36,7 +39,7 @@
         @include('layouts.footer')
     </footer>
     <script src="{{ asset('/js/validation.js') }}"></script>
-    <script src="{{ asset('/js/animation.js') }}"></script>
+    <script src="{{ URL::asset('/js/animation.js') }}"></script>
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>

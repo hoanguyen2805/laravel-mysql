@@ -20,12 +20,17 @@
                     </a>
                 @endif
                 {{-- admin --}}
-                <a href="#">
-                    <i class="fa fa-users" aria-hidden="true"></i> Manage users
-                </a>
-                <a href="#">
-                    <i class="fa fa-product-hunt" aria-hidden="true"></i> Manage products
-                </a>
+                @can('viewAny', App\Models\User::class)
+                    @if(Route::has('admin.user.list'))
+                        <a href="{{ route('admin.user.list') }}"
+                           class="{{ request()->is('admin/user/list*') ? 'active' : '' }}">
+                            <i class="fa fa-users" aria-hidden="true"></i> Manage users
+                        </a>
+                    @endif
+                    <a href="#">
+                        <i class="fa fa-product-hunt" aria-hidden="true"></i> Manage products
+                    </a>
+                @endcan
                 {{-- end admin --}}
                 <a href="{{ route('logout') }}"
                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
