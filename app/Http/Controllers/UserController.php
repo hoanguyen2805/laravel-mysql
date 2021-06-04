@@ -22,6 +22,8 @@ class UserController extends Controller
     /**
      *
      * Hoa
+     * Created at 03-06-2021 14h20
+     * get list users and search
      *
      */
     public function getUsers(Request $request)
@@ -41,6 +43,13 @@ class UserController extends Controller
         }
     }
 
+    /**
+     *
+     * Hoa
+     * Created at 03-06-2021 16h00
+     * delete user by id
+     *
+     */
     public function deleteUser($id)
     {
         $user = Auth::user();

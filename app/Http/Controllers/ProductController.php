@@ -20,6 +20,13 @@ class ProductController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     *
+     * Hoa
+     * Created at 04-06-2021 09h00
+     * get list product and search
+     *
+     */
     public function getProducts(Request $request)
     {
         $user = Auth::user();
@@ -42,6 +49,13 @@ class ProductController extends Controller
         }
     }
 
+    /**
+     *
+     * Hoa
+     * Created at 04-06-2021 10h20
+     * delete product by id
+     *
+     */
     public function deleteProduct($id)
     {
         $user = Auth::user();
@@ -61,6 +75,13 @@ class ProductController extends Controller
         }
     }
 
+    /**
+     *
+     * Hoa
+     * Created at 05-06-2021 14h20
+     * Handle a update product request
+     *
+     */
     public function updateProduct(Request $request, $id)
     {
         $user = Auth::user();
@@ -93,9 +114,10 @@ class ProductController extends Controller
     /**
      *
      * Hoa
+     * created at 04-06-2021 15h20
      * Get a validator for an incoming update product request.
-     * created at
      * @param array $data
+     * @param integer $id
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validateUpdateProduct(array $data, $id)
@@ -103,7 +125,7 @@ class ProductController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255', 'min:4', 'unique:products,name,'.$id],
             'price' => ['required', 'integer', 'min:0', 'max:2147483647'],
-            'category' => ['required', 'string'],
+            'category' => ['required', 'integer', 'min:1'],
             'image' => ['image', 'mimes:jpg,jpeg,png', 'max:2048'],
         ]);
     }
