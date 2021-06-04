@@ -1,9 +1,9 @@
 <h1>Laravel - Mysql</h1>
 <hr/>
 <h3>Cách chạy project</h3>
-<p>B1: tạo database mobishop</p>
+<p>B1: tạo database "mobishop"</p>
 <p>B2: php artisan migrate</p>
-<p>B3: artisan db:seed </p>
+<p>B3: php artisan db:seed </p>
 <hr/>
 <h3>Tài khoản admin</h3>
 <p>username: admin</p>
