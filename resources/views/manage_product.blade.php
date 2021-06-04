@@ -7,7 +7,15 @@
                 <div class="col">
                     <div class="manage-product__header">
                         <h1>MANAGE PRODUCT</h1>
-
+                        @if($errors->any())
+                            <div class="alert alert-danger alert-dismissible" style="max-width: 500px; margin: 0 auto;">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <p>UPDATE FAILED!</p>
+                                @foreach ($errors->all() as $error)
+                                    <p>{{ $error }}</p>
+                                @endforeach
+                            </div>
+                        @endif
                     </div>
                 </div>
                 <div class="col">
@@ -57,22 +65,19 @@
 
                                         </div>
                                         <div class="divTableCell">
+                                            <button class="btn btn-warning" data-toggle="modal" type="button"
+                                                    data-target="#update-modal-{{ $product->id }}"><span
+                                                    class="glyphicon glyphicon-edit"></span> Edit
+                                            </button>
                                             <a href="{{ route('admin.product.delete', ['id' => $product->id]) }}"
                                                onClick="return confirm('Are you sure you want to delete this product?');"
                                                class="btn btn-danger">
                                                 <i class="fa fa-trash"
                                                    aria-hidden="true"></i> DELETE
                                             </a>
-{{--                                            <button class="btn btn-warning" data-toggle="modal" type="button"--}}
-{{--                                                    data-target="#update-modal-<?= $product->product_id ?>"><span--}}
-{{--                                                    class="glyphicon glyphicon-edit"></span> Edit--}}
-{{--                                            </button>--}}
-
                                         </div>
-
-                                        {{--                                include 'views/products/update.php';--}}
-
                                     </div>
+                                    @includeIf('update_product')
                                 @endforeach
                             @endif
                         </div>
@@ -94,3 +99,6 @@
         </div>
     </section>
 @endsection
+@push('scripts')
+    {{--        <script type="text/javascript" src="{{ asset('js/animation.js') }}"></script>--}}
+@endpush

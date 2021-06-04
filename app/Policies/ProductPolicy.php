@@ -59,12 +59,11 @@ class ProductPolicy
      * Determine whether the user can update the model.
      *
      * @param \App\Models\User $user
-     * @param \App\Models\Product $product
      * @return mixed
      */
-    public function update(User $user, Product $product)
+    public function update(User $user)
     {
-        //
+        return $user->is_admin > 0;
     }
 
     /**

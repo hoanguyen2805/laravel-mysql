@@ -22,7 +22,7 @@ $(document).ready(function(){
  * Preview Image - update product
  *
  */
-function PreviewImage(id) {
+window.PreviewImage = function(id) {
     let oFReader = new FileReader();
     oFReader.readAsDataURL(document.getElementById(`image-${id}`).files[0]);
 
@@ -30,3 +30,4 @@ function PreviewImage(id) {
         document.getElementById(`upload-preview-${id}`).src = oFREvent.target.result;
     };
 };
+

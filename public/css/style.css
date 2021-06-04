@@ -126,7 +126,10 @@ select {
     margin-bottom: 15px;
 }
 
-
+.manage-product__header p{
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
 .login-form .col {
     width: 350px;
     margin: 0 auto;

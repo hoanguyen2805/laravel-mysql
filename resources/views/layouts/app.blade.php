@@ -24,7 +24,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="{{ asset('/js/validation.js') }}"></script>
-    <script src="{{ URL::asset('/js/animation.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/animation.js') }}"></script>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -42,5 +42,6 @@
     <footer>
         @include('layouts.footer')
     </footer>
+    @stack('scripts')
 </body>
 </html>
