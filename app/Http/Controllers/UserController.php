@@ -19,6 +19,11 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     *
+     * Hoa
+     *
+     */
     public function getUsers(Request $request)
     {
         $user = Auth::user();
@@ -41,7 +46,7 @@ class UserController extends Controller
         $user = Auth::user();
         if ($user->can('delete', User::class)) {
             $user = User::find($id);
-            if($user){
+            if ($user) {
                 if (File::exists(public_path($user->avatar))) {
                     File::delete(public_path($user->avatar));
                 } else {

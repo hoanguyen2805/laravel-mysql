@@ -27,9 +27,12 @@
                             <i class="fa fa-users" aria-hidden="true"></i> Manage users
                         </a>
                     @endif
-                    <a href="#">
-                        <i class="fa fa-product-hunt" aria-hidden="true"></i> Manage products
-                    </a>
+                    @if(Route::has('admin.product.list'))
+                        <a href="{{ route('admin.product.list') }}"
+                        class="{{ request()->is('admin/product/list*') ? 'active' : '' }}">
+                            <i class="fa fa-product-hunt" aria-hidden="true"></i> Manage products
+                        </a>
+                    @endif
                 @endcan
                 {{-- end admin --}}
                 <a href="{{ route('logout') }}"
