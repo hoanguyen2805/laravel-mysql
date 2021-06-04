@@ -7,7 +7,18 @@
                 <div class="col">
                     <div class="manage-user__header">
                         <h1>MANAGE USER</h1>
-
+                        @if(session()->has('message'))
+                            <div class="alert alert-success alert-dismissible" style="max-width: 500px; margin: 0 auto;">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <p>{{ session()->get('message') }}</p>
+                            </div>
+                        @endif
+                        @if(session()->has('error'))
+                            <div class="alert alert-danger alert-dismissible" style="max-width: 500px; margin: 0 auto;">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <p>{{ session()->get('error') }}</p>
+                            </div>
+                        @endif
                     </div>
                 </div>
                 <div class="col">

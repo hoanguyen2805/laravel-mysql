@@ -68,8 +68,11 @@ class ProductController extends Controller
                     echo('File does not exists.');
                 }
                 Product::destroy($id);
+                return redirect()->back()->with('message', 'Deleted Successfully');
+            } else {
+                return redirect()->back()->with('error', 'Product does not exist');
             }
-            return back();
+
         } else {
             return redirect('/home');
         }
@@ -105,7 +108,7 @@ class ProductController extends Controller
                 $product->image = "/uploads/product/$imageName";
             }
             $product->save();
-            return back();
+            return redirect()->back()->with('message', 'Updated Successfully');
         } else {
             return redirect('/home');
         }
@@ -123,7 +126,7 @@ class ProductController extends Controller
     protected function validateUpdateProduct(array $data, $id)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255', 'min:4', 'unique:products,name,'.$id],
+            'name' => ['required', 'string', 'max:255', 'min:4', 'unique:products,name,' . $id],
             'price' => ['required', 'integer', 'min:0', 'max:2147483647'],
             'category' => ['required', 'integer', 'min:1'],
             'image' => ['image', 'mimes:jpg,jpeg,png', 'max:2048'],

@@ -62,6 +62,9 @@ class UserController extends Controller
                     echo('File does not exists.');
                 }
                 User::destroy($id);
+                return redirect()->back()->with('message', 'Deleted Successfully');
+            } else {
+                return redirect()->back()->with('error', 'User does not exist');
             }
             return back();
         } else {
