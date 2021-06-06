@@ -17,30 +17,24 @@
                 <div class="col">
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <div class="text-center">
-                                <h3><i class="fa fa-lock fa-4x"></i></h3>
-                                <h1>Forgot Password?</h1>
-                                <p class="forgot-password--text">We will be sending a reset password link to your email</p>
+                            <div class="">
+                                <h3 class="text-center"><i class="fa fa-lock fa-4x"></i></h3>
+                                <h1 class="text-center">Forgot Password?</h1>
+                                <p class="forgot-password--text">We will be sending a reset password link to your
+                                    email</p>
                                 <div class="panel-body">
-                                    <form id="forgot-password-form" role="form" autocomplete="off" method="post"
+                                    <form id="send-email-form" role="form" autocomplete="off" method="post"
                                           action="{{ route('password.email') }}"
-                                          onsubmit="return validateFormForgotPassword()"
-                                          name="forgot_form">
+                                          name="send_email_form">
                                         @csrf
                                         <div class="form-group">
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="glyphicon glyphicon-envelope color-blue"></i>
-                                                </span>
-                                                <input id="email" name="email" placeholder="email address"
-                                                       class="form-control @error('email') input--error @enderror"
-                                                       type="email"  value="{{ old('email') }}">
-                                            </div>
+                                            <input id="email" name="email" placeholder="email address"
+                                                   class="form-control @error('email') input--error @enderror"
+                                                   type="email" value="{{ old('email') }}">
                                             @error('email')
-                                                <p class="error show">{{ $message }}</p>
-                                                </span>
+                                            <p class="error show">{{ $message }}</p>
+                                            </span>
                                             @enderror
-                                            <p class="error" id="err-email-forgot">Email is required!</p>
                                         </div>
                                         <div class="form-group">
                                             <input name="recover_password" class="btn btn-lg btn-primary btn-block"

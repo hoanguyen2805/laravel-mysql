@@ -4,8 +4,7 @@
             <form action="{{ route('admin.product.update', ['id' => $product->id]) }}"
                   autocomplete="off"
                   method="post"
-                  enctype="multipart/form-data" name="form_update_product_{{ $product->id }}"
-                  onsubmit="return validateFormUpdateProduct({{ $product->id }})">
+                  enctype="multipart/form-data" name="form_update_product_{{ $product->id }}">
                 @csrf
                 <div class="modal-header">
                     <h3 class="modal-title">UPDATE PRODUCT</h3>
@@ -19,7 +18,6 @@
                             <label for="name" class="form-label">Name</label>
                             <input type="text" class="form-input" id="name" placeholder="Eg: iphone 11" name="name"
                                    value="{{ $product->name }}">
-{{--                            <p class="error" id="err-name-update-product-<?= $product->product_id ?>"></p>--}}
                         </div>
 
                         <div class="form-group">
@@ -27,7 +25,6 @@
                             <input type="number" class="form-input" id="price" placeholder="Eg: 50000" name="price"
                                    min="0"
                                    value="{{ $product->price }}">
-{{--                            <p class="error" id="err-price-update-product-<?= $product->product_id ?>"></p>--}}
                         </div>
 
                         <div class="form-group">
@@ -41,8 +38,7 @@
                                     @endif
                                 @endforeach
                             </select>
-{{--                            <p class="error" id="err-select-update-product-<?= $product->product_id ?>">Category is--}}
-{{--                                required!</p>--}}
+
                         </div>
 
                         <div class="form-group">

@@ -14,12 +14,11 @@
                         <form autocomplete="off"
                               action="{{ route('password.update') }}"
                               method="post"
-                              name="reset_form"
-                              onsubmit="return validateFormResetPassword()">
+                              name="reset_form" id="reset-form">
                             @csrf
                             <input type="hidden" name="token" value="{{ $token }}">
                             <input id="email" type="email" class="@error('email') input--error @enderror" name="email"
-                                   value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                                   value="{{ $email ?? old('email') }}" autocomplete="email">
                             @error('email')
                             <p class="error show">
                                 {{ $message }}
@@ -34,12 +33,10 @@
                                 {{ $message }}
                             </p>
                             @enderror
-                            <p class="error" id="err-password-reset"></p>
 
                             <input id="password-confirm" type="password" name="password_confirmation"
                                    autocomplete="new-password" placeholder="Confirm Password"/>
-                            <p class="error" id="err-password-reset-confirm"></p>
-                            <button type="submit" name="reset" class="btn btn-sign-in">Reset Password</button>
+                            <button type="submit" name="reset" class="btn btn-sign-in" style="margin-top: 10px">Reset Password</button>
                         </form>
                     </div>
                 </div>

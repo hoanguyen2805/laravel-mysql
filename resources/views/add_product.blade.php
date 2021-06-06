@@ -4,8 +4,7 @@
             <form action="{{ route('admin.product.add') }}"
                   autocomplete="off"
                   method="post"
-                  enctype="multipart/form-data" name="form_add_product"
-                  >
+                  enctype="multipart/form-data" name="add_product_form" id="add-product-form">
                 @csrf
                 <div class="modal-header">
                     <h3 class="modal-title">ADD NEW PRODUCT</h3>
@@ -18,13 +17,11 @@
                         <div class="form-group">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" class="form-input" id="name" placeholder="Eg: iphone 11" name="name">
-                            {{--                            <p class="error" id="err-name-update-product-<?= $product->product_id ?>"></p>--}}
                         </div>
 
                         <div class="form-group">
                             <label for="price" class="form-label">Price</label>
                             <input type="number" class="form-input" id="price" placeholder="Eg: 50000" name="price">
-                            {{--                            <p class="error" id="err-price-update-product-<?= $product->product_id ?>"></p>--}}
                         </div>
 
                         <div class="form-group">
@@ -38,13 +35,11 @@
                                     @endif
                                 @endforeach
                             </select>
-                            {{--                            <p class="error" id="err-select-update-product-<?= $product->product_id ?>">Category is--}}
-                            {{--                                required!</p>--}}
                         </div>
 
                         <div class="form-group">
                             <label for="image" class="form-label">Image</label>
-                            <input type="file" class="form-input" id="add-image" name="image">
+                            <input type="file" class="form-input" id="image" name="image">
                         </div>
                     </div>
                 </div>

@@ -11,16 +11,14 @@
                 </div>
                 <div class="col">
                     <div class="sign-up-form__content">
-                        <form action="{{ route('register') }}" autocomplete="off" method="post"
-                              enctype="multipart/form-data" name="my_form"
-                              onsubmit="return validateFormSignUp()">
+                        <form action="{{ route('register') }}" method="post"
+                              enctype="multipart/form-data" name="register_form" id="register-form">
                             @csrf
                             <div class="form-group">
                                 <label for="name" class="form-label">Full Name</label>
                                 <input type="text" class="form-input @error('name') input--error @enderror" id="name"
                                        placeholder="Eg: John Doe"
                                        name="name" value="{{ old('name') }}">
-                                <p class="error" id="err-sign-up-name"></p>
                                 @error('name')
                                 <p class="error show">{{ $message }}</p>
                                 @enderror
@@ -31,7 +29,6 @@
                                 <input type="email" class="form-input @error('email') input--error @enderror" id="email"
                                        value="{{ old('email') }}" placeholder="Eg: johndoe@email.com"
                                        name="email">
-                                <p class="error" id="err-sign-up-email"></p>
                                 @error('email')
                                 <p class="error show">{{ $message }}</p>
                                 @enderror
@@ -42,7 +39,6 @@
                                 <input type="text" class="form-input @error('username') input--error @enderror"
                                        id="username" placeholder="Eg: john"
                                        name="username" value="{{ old('username') }}">
-                                <p class="error" id="err-sign-up-username"></p>
                                 @error('username')
                                 <p class="error show">{{ $message }}</p>
                                 @enderror
@@ -54,7 +50,6 @@
                                        class="form-input @error('password') input--error @enderror" id="password"
                                        placeholder="******"
                                        name="password">
-                                <p class="error" id="err-sign-up-password"></p>
                                 @error('password')
                                 <p class="error show">{{ $message }}</p>
                                 @enderror
@@ -62,16 +57,14 @@
 
                             <div class="form-group">
                                 <label for="confirmPassword" class="form-label">Confirm Password</label>
-                                <input type="password" class="form-input" id="password-confirm" placeholder="******"
+                                <input type="password" class="form-input" id="password-confirmation" placeholder="******"
                                        name="password_confirmation">
-                                <p class="error" id="err-sign-up-password-confirm"></p>
                             </div>
 
                             <div class="form-group">
                                 <label for="birth-day" class="form-label">Birthday</label>
                                 <input type="date" class="form-input @error('birth_day') input--error @enderror"
                                        id="birth-day" name="birth_day">
-                                <p class="error" id="err-sign-up-birth-day">Birthday is required!</p>
                                 @error('birth_day')
                                 <p class="error show">{{ $message }}</p>
                                 @enderror
@@ -81,7 +74,6 @@
                                 <label for="avatar" class="form-label">Avatar</label>
                                 <input type="file" class="form-input @error('avatar') input--error @enderror"
                                        id="avatar" name="avatar">
-                                <p class="error" id="err-sign-up-avatar">Avatar is required!</p>
                                 @error('avatar')
                                 <p class="error show">{{ $message }}</p>
                                 @enderror

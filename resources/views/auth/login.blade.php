@@ -14,7 +14,7 @@
                         <form autocomplete="off" action="{{ route('login') }}"
                               method="post"
                               name="login_form"
-                              onsubmit="return validateFormLogin()">
+                              id="login-form">
                             @csrf
                             {{-- start username--}}
                             <input type="text" name="username" class="@error('username') input--error @enderror"
@@ -22,7 +22,6 @@
                             @error('username')
                             <p class="error show">{{ $message }}</p>
                             @enderror
-                            <p class="error" id="err-login-username">username is required!</p>
                             {{-- end username --}}
                             {{-- start password --}}
                             <input type="password" name="password" class="@error('password') input--error @enderror"
@@ -30,7 +29,6 @@
                             @error('password')
                             <p class="error show">{{ $message }}</p>
                             @enderror
-                            <p class="error" id="err-login-password">password is required!</p>
                             {{-- end password --}}
                             <div class="login-form__link">
                                 @if (Route::has('password.request'))
