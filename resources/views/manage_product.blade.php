@@ -8,22 +8,22 @@
                     <div class="manage-product__header">
                         <h1>MANAGE PRODUCT</h1>
                         @if($errors->any())
-                            <div class="alert alert-danger alert-dismissible" style="max-width: 500px; margin: 0 auto;">
+                            <div class="alert alert-danger alert-dismissible" style="max-width: 450px; margin: 0 auto;">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <p>UPDATE FAILED!</p>
+                                <p>FAILED!</p>
                                 @foreach ($errors->all() as $error)
                                     <p>{{ $error }}</p>
                                 @endforeach
                             </div>
                         @endif
                         @if(session()->has('message'))
-                            <div class="alert alert-success alert-dismissible" style="max-width: 500px; margin: 0 auto;">
+                            <div class="alert alert-success alert-dismissible" style="max-width: 450px; margin: 0 auto;">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                 <p>{{ session()->get('message') }}</p>
                             </div>
                         @endif
                         @if(session()->has('error'))
-                            <div class="alert alert-danger alert-dismissible" style="max-width: 500px; margin: 0 auto;">
+                            <div class="alert alert-danger alert-dismissible" style="max-width: 450px; margin: 0 auto;">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                 <p>{{ session()->get('error') }}</p>
                             </div>
@@ -37,9 +37,11 @@
                         <input type="text" placeholder="Enter name" name="key">
                         <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
                     </form>
-                    <a href="index.php?controller=products&action=add" class="manage-product__add">
-                        <i class="fa fa-plus" aria-hidden="true"></i> Add Product
-                    </a>
+                    <button class="btn btn-primary btn--center" data-toggle="modal" type="button"
+                            data-target="#add-modal-product"><span
+                            class="glyphicon glyphicon-plus"></span> Add Product
+                    </button>
+                    @includeIf('add_product')
                 </div>
 
                 <div class="col">
@@ -111,6 +113,3 @@
         </div>
     </section>
 @endsection
-@push('scripts')
-    {{--        <script type="text/javascript" src="{{ asset('js/animation.js') }}"></script>--}}
-@endpush

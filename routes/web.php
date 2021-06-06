@@ -36,5 +36,6 @@ Route::prefix('/admin')->as('admin.')->group(function () {
             ->where('id', '[0-9]+')->name('delete');
         Route::post('/update/{id}', [ProductController::class, 'updateProduct'])
             ->where('id', '[0-9]+')->name('update');
+        Route::post('/add', [ProductController::class, 'addProduct'])->name('add');
     });
 });

@@ -29,7 +29,7 @@
                     @endif
                     @if(Route::has('admin.product.list'))
                         <a href="{{ route('admin.product.list') }}"
-                        class="{{ request()->is('admin/product/list*') ? 'active' : '' }}">
+                           class="{{ request()->is('admin/product/list*') ? 'active' : '' }}">
                             <i class="fa fa-product-hunt" aria-hidden="true"></i> Manage products
                         </a>
                     @endif

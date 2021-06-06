@@ -15,22 +15,20 @@
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
     <!-- css -->
-    <link rel="stylesheet" href="{{ asset('/css/reset.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('/css/style.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('/css/responsive.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ mix('/css/reset.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ mix('/css/style.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ mix('/css/responsive.css') }}" type="text/css">
 
     <!-- js -->
-    <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="{{ asset('/js/validation.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/animation.js') }}"></script>
+    <script type="text/javascript" src="{{ mix('/js/validation.js') }}"></script>
+    <script type="text/javascript" src="{{ mix('/js/animation.js') }}"></script>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Laravel - Mysql</title>
-
 </head>
 <body>
     <header>
@@ -42,6 +40,5 @@
     <footer>
         @include('layouts.footer')
     </footer>
-    @stack('scripts')
 </body>
 </html>

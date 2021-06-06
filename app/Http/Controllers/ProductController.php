@@ -132,4 +132,49 @@ class ProductController extends Controller
             'image' => ['image', 'mimes:jpg,jpeg,png', 'max:2048'],
         ]);
     }
+
+    /**
+     *
+     * Hoa
+     * Created at 06-06-2021 15h30
+     * Handle a add product request
+     *
+     */
+    public function addProduct(Request $request)
+    {
+        $user = Auth::user();
+        if ($user->can('create', Product::class)) {
+            $this->validateAddNewProduct($request->all())->validate();
+            $product = new Product;
+            $product->name = $request->input('name');
+            $product->price = $request->input('price');
+            $product->category_id = $request->input('category');
+            // add new image
+            $imageName = round(microtime(true)) . uniqid() . '.' . $request->image->extension();
+            $request->image->move(public_path('/uploads/product'), $imageName);
+            $product->image = "/uploads/product/$imageName";
+            $product->save();
+            return redirect()->back()->with('message', 'Added Successfully');
+        } else {
+            return redirect('/home');
+        }
+    }
+
+    /**
+     *
+     * Hoa
+     * created at 06-06-2021 15h50
+     * Get a validator for an incoming add new product request.
+     * @param array $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validateAddNewProduct(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255', 'min:4', 'unique:products'],
+            'price' => ['required', 'integer', 'min:0', 'max:2147483647'],
+            'category' => ['required', 'integer', 'min:1'],
+            'image' => ['required', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
+        ]);
+    }
 }

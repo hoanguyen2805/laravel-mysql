@@ -654,7 +654,11 @@ div.blueTable {
 .add-product .row {
     flex-direction: column;
 }
-
+.btn--center{
+    display: block;
+    margin: 0 auto 30px auto;
+    padding: 12px;
+}
 .add-product .col {
     width: 50%;
     margin: 0 auto;
