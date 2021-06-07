@@ -59,8 +59,8 @@ select {
 .error {
     color: red;
     display: none;
-    margin-top: 5px;
     margin-bottom: 10px;
+    margin-top: 5px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 13px;
     text-align: left;
@@ -141,7 +141,6 @@ select {
     color: #333;
     border-radius: 4px;
     margin-top: 10px;
-    /*margin-bottom: 15px;*/
     display: block;
     width: 350px;
     transition: border 0.25s linear;
@@ -155,7 +154,7 @@ select {
 .login-form__link {
     display: flex;
     justify-content: space-between;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .login-form__link a {
@@ -219,10 +218,6 @@ select {
     font-family: "Poppins", sans-serif;
 }
 
-.form-group {
-    margin-bottom: 10px;
-}
-
 .form-label {
     display: inline-block;
     cursor: pointer;
@@ -251,7 +246,7 @@ select {
 
 .form-submit {
     display: block;
-    margin-top: 20px;
+    margin-top: 45px;
     width: 100%;
     padding: 20px;
     color: white;
@@ -388,7 +383,6 @@ select {
     border: 1px solid #eee;
     color: #333;
     border-radius: 4px;
-    /*margin-bottom: 15px;*/
     margin-top: 10px;
     display: block;
     width: 350px;
@@ -757,5 +751,11 @@ div.blueTable {
 .modal-body{
     max-height: 72vh;
     overflow-y: scroll;
+}
+.img-preview{
+    width: 150px;
+    height: 120px;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 

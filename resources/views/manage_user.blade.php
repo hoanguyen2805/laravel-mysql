@@ -33,7 +33,7 @@
                     <div class="divTable blueTable">
                         <div class="divTableHeading">
                             <div class="divTableRow">
-                                <div class="divTableHead" style="width: 5%">ID</div>
+                                <div class="divTableHead" style="width: 5%">#</div>
                                 <div class="divTableHead" style="width: 10%">Avatar</div>
                                 <div class="divTableHead" style="width: 20%">Full Name</div>
                                 <div class="divTableHead" style="width: 20%">Email</div>
@@ -46,7 +46,9 @@
                             @if ($users)
                                 @foreach ($users as $user)
                                     <div class="divTableRow">
-                                        <div class="divTableCell">{{ $user->id }}</div>
+                                        <div class="divTableCell">
+                                            {{ $loop->index + 1 + ($users->currentPage() - 1) * 5}}
+                                        </div>
                                         <div class="divTableCell">
                                             <img src="{{ url($user->avatar) }}" alt="">
                                         </div>

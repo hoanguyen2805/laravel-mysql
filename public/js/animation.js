@@ -3,14 +3,14 @@ var __webpack_exports__ = {};
 /*!***********************************!*\
   !*** ./resources/js/animation.js ***!
   \***********************************/
-/**
- *
- * Hoa
- * Created at 17-05-2021
- * click menu responsive
- *
- */
 $(document).ready(function () {
+  /**
+   *
+   * Hoa
+   * Created at 17-05-2021
+   * open menu responsive
+   *
+   */
   $("#menu").click(function () {
     var x = document.getElementById("my-top-nav");
 
@@ -20,22 +20,38 @@ $(document).ready(function () {
       x.className = "top-bar__menu";
     }
   });
+  /**
+   *
+   * Hoa
+   * Created at 19-05-2021
+   * Preview Image - update product
+   *
+   */
+
+  $("#update-image-product").on('input', function () {
+    var oFReader = new FileReader();
+    oFReader.readAsDataURL(document.getElementById('update-image-product').files[0]);
+
+    oFReader.onload = function (oFREvent) {
+      $('#image-preview').attr("src", oFREvent.target.result);
+    };
+  });
 });
 /**
  *
  * Hoa
- * Created at 19-05-2021
- * Preview Image - update product
+ * Created at 07-06-2021 09h30
+ * send data from a row (product) to "product update form"
  *
  */
 
-window.PreviewImage = function (id) {
-  var oFReader = new FileReader();
-  oFReader.readAsDataURL(document.getElementById("image-".concat(id)).files[0]);
-
-  oFReader.onload = function (oFREvent) {
-    document.getElementById("upload-preview-".concat(id)).src = oFREvent.target.result;
-  };
+window.setValueInput = function (product) {
+  $("#id-product").val(product.id);
+  $("#update-name-product").val(product.name);
+  $("#update-price-product").val(product.price);
+  $("#update-category-product").val(product.category_id);
+  $("#update-image-product").val("");
+  $('#image-preview').attr("src", product.image);
 };
 /******/ })()
 ;

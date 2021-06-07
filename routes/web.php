@@ -34,8 +34,7 @@ Route::prefix('/admin')->as('admin.')->group(function () {
         Route::get('/list', [ProductController::class, 'getProducts'])->name('list');
         Route::get('/delete/{id}', [ProductController::class, 'deleteProduct'])
             ->where('id', '[0-9]+')->name('delete');
-        Route::post('/update/{id}', [ProductController::class, 'updateProduct'])
-            ->where('id', '[0-9]+')->name('update');
+        Route::post('/update', [ProductController::class, 'updateProduct'])->name('update');
         Route::post('/add', [ProductController::class, 'addProduct'])->name('add');
     });
 });

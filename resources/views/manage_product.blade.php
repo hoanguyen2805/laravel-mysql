@@ -17,7 +17,8 @@
                             </div>
                         @endif
                         @if(session()->has('message'))
-                            <div class="alert alert-success alert-dismissible" style="max-width: 450px; margin: 0 auto;">
+                            <div class="alert alert-success alert-dismissible"
+                                 style="max-width: 450px; margin: 0 auto;">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                 <p>{{ session()->get('message') }}</p>
                             </div>
@@ -48,7 +49,7 @@
                     <div class="divTable blueTable">
                         <div class="divTableHeading">
                             <div class="divTableRow">
-                                <div class="divTableHead" style="width: 5%">ID</div>
+                                <div class="divTableHead" style="width: 5%">#</div>
                                 <div class="divTableHead" style="width: 10%">Image</div>
                                 <div class="divTableHead" style="width: 35%">Name</div>
                                 <div class="divTableHead" style="width: 15%">Price</div>
@@ -61,7 +62,7 @@
                                 @foreach($products as $product)
                                     <div class="divTableRow">
                                         <div class="divTableCell">
-                                            {{ $product->id}}
+                                            {{ $loop->index + 1 + ($products->currentPage() - 1) * 5}}
                                         </div>
                                         <div class="divTableCell">
                                             <img src="{{ url($product->image) }}" alt="">
@@ -80,8 +81,10 @@
                                         </div>
                                         <div class="divTableCell">
                                             <button class="btn btn-warning" data-toggle="modal" type="button"
-                                                    data-target="#update-modal-{{ $product->id }}"><span
-                                                    class="glyphicon glyphicon-edit"></span> Edit
+                                                    data-target="#update-modal" onClick="setValueInput({{$product}});">
+                                                <span
+                                                    class="glyphicon glyphicon-edit">
+                                                </span> Edit
                                             </button>
                                             <a href="{{ route('admin.product.delete', ['id' => $product->id]) }}"
                                                onClick="return confirm('Are you sure you want to delete this product?');"
@@ -91,8 +94,8 @@
                                             </a>
                                         </div>
                                     </div>
-                                    @includeIf('update_product')
                                 @endforeach
+                                @includeIf('update_product')
                             @endif
                         </div>
                     </div>

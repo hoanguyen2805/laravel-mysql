@@ -161,11 +161,7 @@ $().ready(function () {
    */
 
   $.validator.addMethod('filesize', function (value, element, arg) {
-    if (element.files[0].size <= arg) {
-      return true;
-    } else {
-      return false;
-    }
+    return this.optional(element) || element.files[0].size <= arg;
   });
   /**
    *
@@ -281,7 +277,57 @@ $().ready(function () {
    * validate update product form
    *
    */
-}); // The avatar must not be greater than 2048 kilobytes.
+
+  $("#update-product-form").validate({
+    onfocusout: false,
+    onkeyup: false,
+    onclick: false,
+    rules: {
+      "name": {
+        required: true,
+        minlength: 4,
+        maxlength: 255
+      },
+      "price": {
+        required: true,
+        min: 0,
+        max: 2147483647
+      },
+      "category": {
+        required: true
+      },
+      "image": {
+        required: false,
+        extension: "jpg,jpeg,png",
+        filesize: 2048000
+      }
+    },
+    messages: {
+      "name": {
+        required: "The name field is required."
+      },
+      "price": {
+        required: "The price field is required."
+      },
+      "category": {
+        required: "The category field is required."
+      },
+      "image": {
+        extension: "The image must be an image.",
+        filesize: " file size must be less than 2048KB."
+      }
+    },
+    highlight: function highlight(element) {
+      $(element).addClass('input--error');
+    },
+    unhighlight: function unhighlight(element) {
+      $(element).removeClass('input--error');
+    },
+    submitHandler: function submitHandler(form) {
+      form.submit();
+    }
+  });
+});
 
 /***/ }),
 

@@ -66,7 +66,6 @@ class UserController extends Controller
             } else {
                 return redirect()->back()->with('error', 'User does not exist');
             }
-            return back();
         } else {
             return redirect('/home');
         }

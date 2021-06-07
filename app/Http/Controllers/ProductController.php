@@ -85,10 +85,11 @@ class ProductController extends Controller
      * Handle a update product request
      *
      */
-    public function updateProduct(Request $request, $id)
+    public function updateProduct(Request $request)
     {
         $user = Auth::user();
         if ($user->can('update', Product::class)) {
+            $id = $request->input('id_product');
             $this->validateUpdateProduct($request->all(), $id)->validate();
             $product = Product::find($id);
             $product->name = $request->input('name');
