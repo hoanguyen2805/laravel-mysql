@@ -1,10 +1,16 @@
 <h1>Laravel - Mysql</h1>
 <hr/>
 <h3>Cách chạy project</h3>
-<p>B1: tạo database "mobishop"</p>
-<p>B2: php artisan migrate</p>
-<p>B3: php artisan db:seed</p>
-<p>B4: php artisan serve</p>
+<p>B1: composer install</p>
+<p>B2: npm install</p>
+<p>B3: cp .env.example .env</p>
+<p>B4: php artisan key:generate</p>
+<p>B5: tạo database "mobishop"</p>
+<p>B6: php artisan migrate</p>
+<p>B7: php artisan db:seed</p>
+<p>B8: php artisan serve</p>
+<p>B9: npm run ... (style và script)</p>
+<p>B10: php artisan storage:link</p>
 <hr/>
 <h3>Tài khoản admin</h3>
 <p>username: admin</p>
