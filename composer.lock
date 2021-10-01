@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "445b2b56036f4fb3c253035674db75e4",
+    "content-hash": "71873bce77e30c2341e8f6d268cefec9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -117,6 +117,50 @@
                 }
             ],
             "time": "2021-01-20T22:51:39+00:00"
+        },
+        {
+            "name": "cuongnd88/lara-repository",
+            "version": "1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cuongnd88/lara-repository.git",
+                "reference": "a2e5da1c55455f9f13e707ca1ce64dbfc6f89fb5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cuongnd88/lara-repository/zipball/a2e5da1c55455f9f13e707ca1ce64dbfc6f89fb5",
+                "reference": "a2e5da1c55455f9f13e707ca1ce64dbfc6f89fb5",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Cuongnd88\\LaraRepo\\LaraRepoServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Cuongnd88\\LaraRepo\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ngo Dinh Cuong",
+                    "email": "dinhcuongngo@gmail.com"
+                }
+            ],
+            "description": "Auto-generated Interface and Repository files",
+            "support": {
+                "issues": "https://github.com/cuongnd88/lara-repository/issues",
+                "source": "https://github.com/cuongnd88/lara-repository/tree/1.2"
+            },
+            "time": "2021-06-18T08:31:11+00:00"
         },
         {
             "name": "doctrine/inflector",
